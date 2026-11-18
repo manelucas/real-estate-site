@@ -1,0 +1,23 @@
+{
+  "name": "pbc-distress-db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Palm Beach County property database matched to official delinquent-tax (tax certificate) records.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "download": "node scripts/download.js",
+    "import": "node scripts/import.js",
+    "verify": "node scripts/verify.js",
+    "start": "node src/server.js",
+    "setup": "npm run download && npm run import && npm run verify"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.6",
+    "csv-parse": "7.0.3",
+    "exceljs": "4.4.0",
+    "hono": "4.13.16"
+  }
+}
