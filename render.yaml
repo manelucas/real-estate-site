@@ -9,3 +9,6 @@ services:
     startCommand: npm start
     healthCheckPath: /api/stats
     autoDeploy: true
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

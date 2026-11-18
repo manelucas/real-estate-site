@@ -68,4 +68,6 @@ app.get('/export.csv', (c) => {
 });
 
 const port = Number(process.env.PORT ?? 3000);
-serve({ fetch: app.fetch, port, hostname: '0.0.0.0' }, () => console.log(`Listening on http://localhost:${port}`));
+// Local default is loopback only; hosting platforms set HOST=0.0.0.0 (see render.yaml).
+const hostname = process.env.HOST ?? '127.0.0.1';
+serve({ fetch: app.fetch, port, hostname }, () => console.log(`Listening on http://${hostname === '0.0.0.0' ? 'localhost' : hostname}:${port}`));
