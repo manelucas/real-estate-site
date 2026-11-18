@@ -11,9 +11,11 @@ A working property database for Palm Beach County, FL, built from official gover
 | Unpaid county-held tax certificates | 833 |
 | Certificates matched to a parcel | **833 / 833 (100%)** |
 | Legal description agreement (Tax Collector vs. state roll) | **833 / 833 (100%)** |
-| Live check vs. pbcpao.gov, random sample of 20 | **20 / 20** address and owner |
+| Live check vs. pbcpao.gov, random sample of 20 | **20 / 20** owner · **17 / 20** address (other 3 are vacant lots with no address shown on pbcpao.gov) |
 
 See [docs/ACCURACY.md](docs/ACCURACY.md) for the full accuracy report and [docs/spot-check.csv](docs/spot-check.csv) to check any record by hand.
+
+**Live demo:** _add Render URL here_
 
 ## Features
 
@@ -63,5 +65,15 @@ src/queries.js        search / property / stats queries
 src/views.js          server-rendered HTML
 src/server.js         Hono web app, JSON API, CSV export
 ```
+
+## Deploying (free demo on Render)
+
+The repo includes a [Render Blueprint](render.yaml). On each deploy Render downloads the official files and builds the database (`npm run build`), so no data is stored in git.
+
+1. Sign in at render.com with GitHub.
+2. **New → Blueprint**, pick this repository, and apply.
+3. The free instance sleeps after 15 minutes idle; the first request after that takes about a minute.
+
+The build reuses the last live Property Appraiser check from `docs/verification.json`. Run `npm run verify` locally and commit to refresh it.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the production architecture and the Cloudflare deployment path.

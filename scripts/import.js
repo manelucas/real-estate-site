@@ -42,7 +42,7 @@ const counts = {};
 
 // ---------- 0. Source provenance (record counts filled in at the end) ----------
 for (const s of SOURCES) {
-  insSource.run(s.id, s.name, s.publisher, s.url, s.landing, manifest[s.id]?.retrievedAt ?? null, null);
+  insSource.run(s.id, s.name, s.publisher, manifest[s.id]?.url ?? s.url, s.landing, manifest[s.id]?.retrievedAt ?? null, null);
 }
 
 // ---------- 1. Parcels (DOR NAL) ----------

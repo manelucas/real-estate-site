@@ -68,4 +68,4 @@ app.get('/export.csv', (c) => {
 });
 
 const port = Number(process.env.PORT ?? 3000);
-serve({ fetch: app.fetch, port }, () => console.log(`Listening on http://localhost:${port}`));
+serve({ fetch: app.fetch, port, hostname: '0.0.0.0' }, () => console.log(`Listening on http://localhost:${port}`));

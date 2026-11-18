@@ -1,0 +1,11 @@
+# Render Blueprint: free web service that builds the database from official sources on each deploy.
+services:
+  - type: web
+    name: pbc-property-research
+    runtime: node
+    plan: free
+    region: virginia
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/stats
+    autoDeploy: true

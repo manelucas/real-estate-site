@@ -28,6 +28,8 @@ export const SOURCES = [
     publisher: 'Constitutional Tax Collector, Serving Palm Beach County',
     url: 'https://www.pbctax.gov/wp-content/uploads/2026/11/County_Certs_PBCTax-11.2.26.xlsx',
     landing: 'https://www.pbctax.gov/taxes/property-tax/tax-certificates-and-deeds/',
+    // The file name carries its publication date and changes with each update.
+    discover: /https?:\/\/[^"'\s]*County_Certs[^"'\s]*\.xlsx/i,
     file: 'county_certs.xlsx',
   },
 ];

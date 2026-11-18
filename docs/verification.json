@@ -1,0 +1,232 @@
+{
+  "appraiser": {
+    "checked": 20,
+    "networkErrors": 0,
+    "addressMatch": 17,
+    "ownerMatch": 20,
+    "addressBlankOnPao": 3,
+    "checkedAt": "2026-11-18T17:43:32.109Z"
+  },
+  "appraiserRows": [
+    {
+      "parcel_id": "02424436200240362",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=02424436200240362",
+      "db_address": "GLENBROOK DR",
+      "db_owner": "PANOSSIAN RAZMIG",
+      "pao_address": "GLENBROOK DR",
+      "pao_owners": "PANOSSIAN RAZMIG 398 GLENBROOK DR LAKE WORTH FL 33462 1017",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00434420010470020",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00434420010470020",
+      "db_address": "SUMMER ST",
+      "db_owner": "GROVES WHITE GLADYS &",
+      "pao_address": "SUMMER ST",
+      "pao_owners": "VANFOSSEN ANKROM FREDA D & VANFOSSEN BAILEY HILMA R & VANFOSSEN POWELL JUDITH & VANFOSSEN WRIGHT BETTY J & VANFOSSEN GLEN L & VANFOSSEN KINNEY RITA D & HAWKENBERRY DONALD L & HAWKENBERRY WILLIAM F & MOORE BRIAN & MOORE JACKIE B & MOORE KRAUSE TWYLA J & MOORE TYRIA & PASSMORE GERALD L & PASSMORE THELMAR L & PASSMORE WILLIAM T & BOYD GEORGE L & GROVES WHITE GLADYS & RIGGS BOYD CAROL A & WALKER BOYD VIVIAN HESTER & NAEGELI PARKER DEBRA & NEISWANGER PARKER KATHERINE & PORTER PARKER VICKI L & BOYD CHRIS E & BOYD DAN E & BOYD RANDY L & BOYD RICKY C & FULTON JON M & FULTON ROBERT D & DAVIS MELVIN L & FUNKHOUSER DAVIS SANDRA D & HEATH DAVIS SHARON & SUTTON DAVIS LYNNE A & GATTEN CHARLES & KASKO GATTEN NORMAN J & MILLER GATTEN BARBARA & PHILLIPS GATTEN SHIRLEY & VANFOSSEN GATTEN BEVERLY WELLS GATTEN LINDA & BALDWIN BATES FAY & BATES BENNIE & VAN DER WEGE BATES RUTH A ASHWORTH BOYD BETTY J & BOYD BENJAMIN & BOYD GREGORY C & BOYD HOWARD R & CARUSO BOYD DIANNA L & FULTON MELVIN & FULTON THOMAS H & KRITZ BOYD PHYLLIS & PATT BOYD PATRICIA L & PORTER FULTON MARCELLA & ROBSON BOYD JO ELLEN & DABO WARD SARAH & KELCH WARD NANCY & SHALLCROSS WARD BETTY L & WARD DONALD & WARD ROGER E & BOSTON MCMAHON DONNA & HAKR MCMAHON ELLA M & MCMAHON CHESTER & MCMAHON GEORGE & MCMAHON PAUL F & FIORE GOODFELLOW DOROTHY L & GOODFELLOW DANNY E & GOODFELLOW RAYMOND E & JOHNSON GOODFELLOW GLADYS I & KETCHOM GOODFELLOW PENNY & SHRINER GOODFELLOW BETTY J & SWICK GOODFELLOW LILLIAN M & PELKEY SHUNK DONNA J & ROUSH SHUNK BRENDA S & SHUNK DONALD A & SHUNK FRANCES K & SHUNK GERALD & SHUNK PENNY J & MCMAHON DAVID & MCMAHON JEFFREY & FULTON CISSY FULTON HOWARD K & FULTON JAMES & FULTON JOSEPH & FULTON PAMELA & HOOVER FULTON VALERIA & WOOD FULTON MARIANNE & HURST MCMAHON DORIS G & MCMAHON KENNETH D JR & MCMAHON THOMAS R & MULLIGAN MCMAHON TRACY D & BARTON GOODFELLOW CAROL A & CREWS THACKER SHERYL L & GOODFELLOW JOHN R & GOODFELLOW MARK D & GOODFELLOW MICHAEL P & GOODFELLOW PAULL D & GOODFELLOW SANDRA A & GOODFELLOW THOMAS R & GOODFELLWO MARY C & RICE GOODFELLOW MYRO J & FREDENBURG BRETT A & GOTTSCHALK FREDENBURG KIMBERLY G & 531 MAIN ST # 2 CALDWELL OH 43724 1324",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "22424326000005360",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=22424326000005360",
+      "db_address": "BELVEDERE RD",
+      "db_owner": "RIVEIRA BONIFACIO J &",
+      "pao_address": "BELVEDERE RD",
+      "pao_owners": "RIVEIRA BONIFACIO J & RIVEIRA LEITHIA 1133 MELINDA LN WEST PALM BEACH FL 33417 5816",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00414303000006020",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00414303000006020",
+      "db_address": "120TH AVE N",
+      "db_owner": "PHILADELPHIA FLORIDA CORP",
+      "pao_address": null,
+      "pao_owners": "PHILADELPHIA FLORIDA CORP G W GABLE INC C/O PO BOX 6055 MIAMI FL 33154",
+      "addressMatch": false,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "08434521200080081",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=08434521200080081",
+      "db_address": "218 NE 12TH AVE",
+      "db_owner": "HEAD LILLIE QUINCE",
+      "pao_address": null,
+      "pao_owners": "HEAD LILLIE QUINCE 566 UDEL LN DELRAY BEACH FL 33445 2432",
+      "addressMatch": false,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00414303000005660",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00414303000005660",
+      "db_address": "120TH AVE N",
+      "db_owner": "PHILADELPHIA FLORIDA CORP",
+      "pao_address": null,
+      "pao_owners": "PHILADELPHIA FLORIDA CORP G W GABLE INC C/O PO BOX 6055 MIAMI FL 33154",
+      "addressMatch": false,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "04374331060030070",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=04374331060030070",
+      "db_address": "348 SW 8TH ST",
+      "db_owner": "CALUSA CONSULTING GROUP LLC",
+      "pao_address": "348 SW 8TH ST",
+      "pao_owners": "CALUSA CONSULTING GROUP LLC 5162 PALM WAY LAKE WORTH FL 33463 8002",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424323166002040",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424323166002040",
+      "db_address": "204 OXFORD 600",
+      "db_owner": "SCHOLER CHRISTINE C",
+      "pao_address": "204 OXFORD 600",
+      "pao_owners": "SCHOLER CHRISTINE C 7750 OKEECHOBEE BLVD STE 4-58 WEST PALM BEACH FL 33411 2104",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424327000005070",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424327000005070",
+      "db_address": "6234 CAMP LEE RD",
+      "db_owner": "FLEMING JAMES M &",
+      "pao_address": "6234 CAMP LEE RD",
+      "pao_owners": "FLEMING DEBORAH A FLEMING JAMES M & 6234 CAMP LEE RD WEST PALM BEACH FL 33417 5543",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424327050630960",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424327050630960",
+      "db_address": "122ND PL S",
+      "db_owner": "GAMOT ALBERT J JR",
+      "pao_address": "122ND PL S",
+      "pao_owners": "GAMOT ALBERT J JR 6029 180TH ST N JUPITER FL 33458 7916",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "48374209020000950",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=48374209020000950",
+      "db_address": "509 E JORDAN BLVD",
+      "db_owner": "JUAREZ MARIA E",
+      "pao_address": "509 E JORDAN BLVD",
+      "pao_owners": "JUAREZ MARIA E 509 E JORDAN BLVD PAHOKEE FL 33476 1231",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424514110060116",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424514110060116",
+      "db_address": "5775 PARKWALK DR",
+      "db_owner": "BASILE DANIELLE",
+      "pao_address": "5775 PARKWALK DR",
+      "pao_owners": "BASILE DANIELLE 828 COPPER MIST CT GRAYSON GA 30017 1926",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "74434304130130010",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=74434304130130010",
+      "db_address": "4200 N TERRACE DR",
+      "db_owner": "ADDLESBERGER SCOTT",
+      "pao_address": "4200 N TERRACE DR",
+      "pao_owners": "ADDLESBERGER SCOTT ADDLESBERGER SCOTT TR SCOTT ADDLESBERGER TR TITL HLDR 4200 N TERRACE DR WEST PALM BEACH FL 33407 3734",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424414090130170",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424414090130170",
+      "db_address": "5818 TARRAGON DR",
+      "db_owner": "BOWLAR KENNETH &",
+      "pao_address": "5818 TARRAGON DR",
+      "pao_owners": "BOWLAR SURRACH BOWLAR KENNETH & BOWLAR SYLVIA 5818 TARRAGON DR WEST PALM BEACH FL 33415 7034",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00434407160010070",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00434407160010070",
+      "db_address": "3589 N LIBBY DR",
+      "db_owner": "RIVERA MARIN JOEDLY &",
+      "pao_address": "3589 N LIBBY DR",
+      "pao_owners": "AGUILAR EMILEY S RIVERA MARIN JOEDLY & 3589 N LIBBY DR WEST PALM BEACH FL 33406 4921",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "68434209130002090",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=68434209130002090",
+      "db_address": "907 MARINA DR 209",
+      "db_owner": "BETAR GEORGE M",
+      "pao_address": "907 MARINA DR 209",
+      "pao_owners": "BETAR GEORGE M 9 HADLAND DR HUNTINGTON NY 11743 2644",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424533090000690",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424533090000690",
+      "db_address": "7141 HAVILAND CIR",
+      "db_owner": "LANGAIGNE SUSAN R",
+      "pao_address": "7141 HAVILAND CIR",
+      "pao_owners": "LANGAIGNE SUSAN R 7141 HAVILAND CIR BOYNTON BEACH FL 33437 6463",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424526250000910",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424526250000910",
+      "db_address": "10072 BOYNTON PLACE CIR",
+      "db_owner": "GENE MERCILISE",
+      "pao_address": "10072 BOYNTON PLACE CIR",
+      "pao_owners": "GENE MERCILISE 10072 BOYNTON PLACE CIR BOYNTON BEACH FL 33437 2608",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424336230034131",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424336230034131",
+      "db_address": "4750 ORLEANS CT A",
+      "db_owner": "ANDERSON DEMINA",
+      "pao_address": "4750 ORLEANS CT A",
+      "pao_owners": "ANDERSON DEMINA 4750 ORLEANS CT APT A WEST PALM BEACH FL 33415 8820",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    },
+    {
+      "parcel_id": "00424127080110010",
+      "url": "https://pbcpao.gov/Property/Details?parcelId=00424127080110010",
+      "db_address": "6498 BRANDON ST",
+      "db_owner": "TAPPER GEOFF &",
+      "pao_address": "6498 BRANDON ST",
+      "pao_owners": "TAPPER BETTE ANN C TAPPER GEOFF & 6498 BRANDON ST PALM BEACH GARDENS FL 33418 1493",
+      "addressMatch": true,
+      "ownerMatch": true,
+      "error": null
+    }
+  ]
+}

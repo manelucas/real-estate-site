@@ -171,7 +171,7 @@ ${ov.sources.map((s) => html`<tr><td><a href="${s.url}">${s.name}</a></td><td cl
 ${v ? html`<div class="card"><h2>Latest verification run · ${date(v.runAt)}</h2><dl>
 <dt>Certificates matched to a parcel</dt><dd><b>${v.match.matched} of ${v.match.total}</b> (${v.match.rate}%) by parcel control number</dd>
 <dt>Legal description agreement</dt><dd>${v.legal.agree} of ${v.legal.compared} matched certificates share the parcel's legal description on the state roll (${v.legal.rate}%)</dd>
-${v.appraiser ? html`<dt>Live Property Appraiser check</dt><dd>${v.appraiser.addressMatch} of ${v.appraiser.checked} sampled parcels: situs address matches pbcpao.gov${v.appraiser.addressBlankOnPao ? ` (${v.appraiser.addressBlankOnPao} more are vacant lots with no address shown on pbcpao.gov)` : ''} · ${v.appraiser.ownerMatch} of ${v.appraiser.checked}: owner name matches</dd>` : ''}
+${v.appraiser ? html`<dt>Live Property Appraiser check${v.appraiser.checkedAt ? ` (${date(v.appraiser.checkedAt)})` : ''}</dt><dd>${v.appraiser.addressMatch} of ${v.appraiser.checked} sampled parcels: situs address matches pbcpao.gov${v.appraiser.addressBlankOnPao ? ` (${v.appraiser.addressBlankOnPao} more are vacant lots with no address shown on pbcpao.gov)` : ''} · ${v.appraiser.ownerMatch} of ${v.appraiser.checked}: owner name matches</dd>` : ''}
 <dt>Data quality flags</dt><dd>${v.flags.length} record(s) flagged for manual review (see docs/ACCURACY.md)</dd>
 </dl></div>` : html`<div class="card"><p>No verification run yet. Run <code>npm run verify</code>.</p></div>`}
 <div class="card"><h2>Coverage notes</h2><ul class="small">

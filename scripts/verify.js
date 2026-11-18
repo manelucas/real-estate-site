@@ -7,7 +7,7 @@
 // Usage: npm run verify            (live sample of 20 parcels, ~1.5 s between requests)
 //        npm run verify -- --sample 50
 //        npm run verify -- --offline
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
 import { openDb, DB_PATH } from '../src/db.js';
 import { links, pidDashed } from './sources.js';
 
@@ -46,8 +46,16 @@ for (const r of pairs) {
 const legal = { compared: pairs.length, agree, rate: +((100 * agree) / (pairs.length || 1)).toFixed(2) };
 
 // ---------- 3. Live Property Appraiser sample ----------
+// The live check is saved to docs/verification.json so offline runs (e.g. hosted builds)
+// can show the most recent live result instead of hitting pbcpao.gov on every deploy.
+const SAVED = 'docs/verification.json';
 let appraiser = null;
-const appraiserRows = [];
+let appraiserRows = [];
+if (offline && existsSync(SAVED)) {
+  const saved = JSON.parse(readFileSync(SAVED, 'utf8'));
+  appraiser = saved.appraiser ?? null;
+  appraiserRows = saved.appraiserRows ?? [];
+}
 if (!offline) {
   const half = Math.ceil(sampleSize / 2);
   const sample = [
@@ -58,26 +66,33 @@ if (!offline) {
   for (const p of sample) {
     const url = links(p.parcel_id).propertyAppraiser;
     const row = { parcel_id: p.parcel_id, url, db_address: p.situs_address, db_owner: p.owner_name, pao_address: null, pao_owners: null, addressMatch: false, ownerMatch: false, error: null };
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (property-research-demo; accuracy check)' } });
-      const text = (await res.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
-      row.pao_address = text.match(/Location Address (.*?) Municipality/)?.[1]?.trim() ?? null;
-      row.pao_owners = text.match(/Owner\(s\) Mailing Address Actions (.*?) Change of Mailing Address/)?.[1]?.trim() ?? null;
-      row.addressMatch = norm(row.pao_address) === norm(p.situs_address);
-      row.ownerMatch = Boolean(row.pao_owners) && norm(row.pao_owners).includes(norm(p.owner_name));
-    } catch (e) {
-      row.error = e.message;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (property-research-demo; accuracy check)' } });
+        const text = (await res.text()).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+        row.pao_address = text.match(/Location Address (.*?) Municipality/)?.[1]?.trim() ?? null;
+        row.pao_owners = text.match(/Owner\(s\) Mailing Address Actions (.*?) (?:Change of Mailing Address|Sales INFORMATION)/)?.[1]?.trim() ?? null;
+        row.addressMatch = norm(row.pao_address) === norm(p.situs_address);
+        row.ownerMatch = Boolean(row.pao_owners) && norm(row.pao_owners).includes(norm(p.owner_name));
+        row.error = null;
+        break;
+      } catch (e) {
+        row.error = e.message; // network failure, not a data mismatch; retry
+        await new Promise((r) => setTimeout(r, 3000));
+      }
     }
     appraiserRows.push(row);
     console.log(`  ${pidDashed(p.parcel_id)}  address ${row.addressMatch ? 'OK ' : 'DIFF'}  owner ${row.ownerMatch ? 'OK ' : 'DIFF'}`);
     await new Promise((r) => setTimeout(r, 1500));
   }
   appraiser = {
-    checked: appraiserRows.length,
+    checked: appraiserRows.filter((r) => !r.error).length,
+    networkErrors: appraiserRows.filter((r) => r.error).length,
     addressMatch: appraiserRows.filter((r) => r.addressMatch).length,
     ownerMatch: appraiserRows.filter((r) => r.ownerMatch).length,
     // Vacant parcels where the state roll has a street name only and pbcpao.gov displays no situs address.
     addressBlankOnPao: appraiserRows.filter((r) => !r.addressMatch && !r.error && !r.pao_address).length,
+    checkedAt: new Date().toISOString(),
   };
 }
 
@@ -90,6 +105,10 @@ const flags = db.prepare(`SELECT c.parcel_id, c.sale_year, c.certificate_number,
 
 // ---------- Reports ----------
 const summary = { match, legal, appraiser, flags, unmatchedCount: unmatched.length };
+if (!offline) {
+  mkdirSync('docs', { recursive: true });
+  writeFileSync(SAVED, JSON.stringify({ appraiser, appraiserRows }, null, 2) + '\n');
+}
 db.prepare('INSERT INTO verification (run_at, summary_json) VALUES (?, ?)').run(new Date().toISOString(), JSON.stringify(summary));
 const sources = db.prepare('SELECT * FROM sources').all();
 db.close();
@@ -125,9 +144,9 @@ The Tax Collector's certificate file and the state tax roll each carry a legal d
 ${disagree.length ? `\n| Parcel | Certificate legal | State roll legal |\n|---|---|---|\n${disagree.slice(0, 25).map((d) => `| ${pidDashed(d.parcel_id)} | ${d.cert_legal ?? ''} | ${d.roll_legal ?? ''} |`).join('\n')}\n` : ''}
 ## 3. Live check against the Property Appraiser (pbcpao.gov)
 
-${appraiser ? `A random sample of ${appraiser.checked} parcels (half tax-delinquent, half not) was fetched from the Property Appraiser's public site and compared with the database.
+${appraiser ? `Checked ${appraiser.checkedAt?.slice(0, 10) ?? ''}. A random sample of ${appraiser.checked} parcels (half tax-delinquent, half not) was fetched from the Property Appraiser's public site and compared with the database.
 
-- Situs address matches: **${appraiser.addressMatch} / ${appraiser.checked}**${appraiser.addressBlankOnPao ? ` (${appraiser.addressBlankOnPao} of the others are vacant parcels where the state roll lists a street name only and pbcpao.gov shows no situs address)` : ''}
+${appraiser.networkErrors ? `- ${appraiser.networkErrors} request(s) failed at the network level and are excluded\n` : ''}- Situs address matches: **${appraiser.addressMatch} / ${appraiser.checked}**${appraiser.addressBlankOnPao ? ` (${appraiser.addressBlankOnPao} of the others are vacant parcels where the state roll lists a street name only and pbcpao.gov shows no situs address)` : ''}
 - Owner name matches: **${appraiser.ownerMatch} / ${appraiser.checked}**
 
 | Parcel | Database address | pbcpao.gov address | Database owner | pbcpao.gov owner(s) |
