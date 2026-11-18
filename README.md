@@ -15,7 +15,9 @@ A working property database for Palm Beach County, FL, built from official gover
 
 See [docs/ACCURACY.md](docs/ACCURACY.md) for the full accuracy report and [docs/spot-check.csv](docs/spot-check.csv) to check any record by hand.
 
-**Live demo:** _add Render URL here_
+**Live demo:** https://pbc-property-research.onrender.com/ (free hosting: if it has been idle, the first page load takes about a minute)
+
+Try: [tax-delinquent properties in ZIP 33430](https://pbc-property-research.onrender.com/?zip=33430&distress=tax) · [a property with 13 unpaid tax years](https://pbc-property-research.onrender.com/property/74424313170040000) · [data sources & accuracy](https://pbc-property-research.onrender.com/sources)
 
 ## Features
 
